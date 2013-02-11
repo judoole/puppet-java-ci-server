@@ -15,4 +15,4 @@
 	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
 [submodule "modules/jenkins"]
 	path = modules/jenkins
-	url = git://github.com/rtyler/puppet-jenkins.git
+	url = https://github.com/rtyler/puppet-jenkins.git
