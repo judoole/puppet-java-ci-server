@@ -36,6 +36,7 @@ node jenkins{
 	}	
 }
 node sonar{
+	class { 'maven::maven' : } ->
 	class { 'sonar': 
 		version => '3.5.1',
 	}
