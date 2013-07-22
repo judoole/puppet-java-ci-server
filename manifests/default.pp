@@ -35,3 +35,8 @@ node jenkins{
   			version => "2.8";
 	}	
 }
+node sonar{
+	class { 'sonar': 
+		version => '3.5.1',
+	}
+}
