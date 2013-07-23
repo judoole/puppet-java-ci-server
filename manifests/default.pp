@@ -1,9 +1,15 @@
-#include base
-#include jenkins
-#include sonar
 
-node jenkins{
-	class { 'jenkins': }
+node jenkins{	
+	class{ 'jenkins':
+   		config_hash => {
+     		'HTTP_PORT' => { 'value' => '9090' }, 'AJP_PORT' => { 'value' => '9009' }
+   		},
+	}
+
+#	file { '/var/lib/jenkins/config.xml':
+#		ensure => present,
+#		source => "puppet:///modules/files/jenkins.config.xml"
+#	}
 	
 	jenkins::plugin {
   		"WebSVN2" :

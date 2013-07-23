@@ -5,12 +5,12 @@ Vagrant.configure("2") do |config|
     puppet.manifests_path = "manifests"
     puppet.options = "--trace --debug"
     puppet.manifest_file  = "default.pp"
-    puppet.module_path = "modules"
+    puppet.module_path = "modules"    
   end
 
   config.vm.define :jenkins do |jenkins_config|
     jenkins_config.vm.hostname = "jenkins"
-    jenkins_config.vm.network :forwarded_port, guest:8080, host: 4568
+    jenkins_config.vm.network :forwarded_port, guest:9090, host: 4568
   end  
 
   config.vm.define :sonar do |sonar_config|
