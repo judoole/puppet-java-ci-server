@@ -89,7 +89,7 @@ node jenkins{
 	}	
 }
 
-node sonar{
+node sonar{	
 	$jdbc = {
 	  url               => 'jdbc:h2:tcp://localhost:9092/sonar',
 	  driver_class_name => 'org.h2.Driver',
@@ -97,9 +97,9 @@ node sonar{
 	  username          => 'sonar',
 	  password          => 'sonar',
 	}
-	class { 'apt::release':
-	  release_id => 'precise',
-	}
+	class { 'apt':
+  		always_apt_update    => true,
+  	}
 	class { 'java':
   		distribution => 'jdk',
   		version      => 'latest',

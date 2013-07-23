@@ -1,9 +1,6 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "precise32"
-  #config.vm.forward_port 80, 4567
-  #config.vm.forward_port 9000, 4569
 
-  # Enable the Puppet provisioner
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "manifests"
     puppet.options = "--trace --debug"
