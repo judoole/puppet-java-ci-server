@@ -17,6 +17,59 @@ node jenkins{
   		"m2release" :
   			version => "0.11.0";
 	}
+	jenkins::plugin {
+  		"token-macro" :
+  			version => "1.8.1";
+	}
+	jenkins::plugin {
+  		"run-condition" :
+  			version => "0.10";
+	}
+	jenkins::plugin {
+  		"jobConfigHistory" :
+  			version => "2.4";
+	}
+	jenkins::plugin {
+  		"jenkinswalldisplay" :
+  			version => "0.6.17";
+	}
+	jenkins::plugin {
+  		"nested-view" :
+  			version => "1.10";
+	}
+	jenkins::plugin {
+  		"xvnc" :
+  			version => "1.14";
+	}
+	jenkins::plugin {
+  		"conditional-buildstep" :
+  			version => "1.3";
+	}
+	jenkins::plugin {
+  		"throttle-concurrents" :
+  			version => "1.7.2";
+	}
+	jenkins::plugin {
+  		"copyartifact" :
+  			version => "1.27";
+	}
+	jenkins::plugin {
+  		"gradle" :
+  			version => "1.23";
+	}
+	jenkins::plugin {
+  		"mask-passwords" :
+  			version => "2.7.2";
+	}
+	jenkins::plugin {
+  		"repository-connector" :
+  			version => "0.8.2";
+	}
+	jenkins::plugin {
+  		"sitemonitor" :
+  			version => "0.4";
+	}
+
 	# Build-Pipeline-Plugin
 	jenkins::plugin {
   		"build-pipeline-plugin" : 
@@ -35,9 +88,25 @@ node jenkins{
   			version => "2.8";
 	}	
 }
+
 node sonar{
+	$jdbc = {
+	  url               => 'jdbc:h2:tcp://localhost:9092/sonar',
+	  driver_class_name => 'org.h2.Driver',
+	  validation_query  => 'select 1',
+	  username          => 'sonar',
+	  password          => 'sonar',
+	}
+	class { 'apt::release':
+	  release_id => 'precise',
+	}
+	class { 'java':
+  		distribution => 'jdk',
+  		version      => 'latest',
+	} ->
 	class { 'maven::maven' : } ->
-	class { 'sonar': 
-		version => '3.5.1',
+	class { 'sonar' :
+	  version      => '3.6.2',
+	  jdbc         => $jdbc,
 	}
 }

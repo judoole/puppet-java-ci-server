@@ -16,12 +16,9 @@ Vagrant.configure("2") do |config|
     jenkins_config.vm.network :forwarded_port, guest:8080, host: 4568
   end  
 
-config.vm.define :sonar do |sonar_config|
+  config.vm.define :sonar do |sonar_config|
     sonar_config.vm.hostname = "sonar"
     sonar_config.vm.network :forwarded_port, guest:9000, host: 4569
-  end    
+  end
 
-#config.vm.define :db do |db_config|
-#    db_config.vm.host_name = "db"
-#  end  
 end
