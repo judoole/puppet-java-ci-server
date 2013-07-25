@@ -64,6 +64,10 @@ node jenkins{
   			version => "1.23";
 	}
 	jenkins::plugin {
+  		"thinBackup" :
+  			version => "1.7.2";
+	}	
+	jenkins::plugin {
   		"mask-passwords" :
   			version => "2.7.2";
 	}
