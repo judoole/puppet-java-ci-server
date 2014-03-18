@@ -1,9 +1,6 @@
 [submodule "modules/apt"]
 	path = modules/apt
 	url = https://github.com/puppetlabs/puppetlabs-apt.git
-[submodule "modules/sonar"]
-	path = modules/sonar
-	url = https://github.com/maestrodev/puppet-sonar.git
 [submodule "modules/wget"]
 	path = modules/wget
 	url = https://github.com/maestrodev/puppet-wget.git
