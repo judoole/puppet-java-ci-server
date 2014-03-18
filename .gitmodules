@@ -1,18 +1,6 @@
-[submodule "modules/apt"]
-	path = modules/apt
-	url = https://github.com/puppetlabs/puppetlabs-apt.git
-[submodule "modules/wget"]
-	path = modules/wget
-	url = https://github.com/maestrodev/puppet-wget.git
-[submodule "modules/maven"]
-	path = modules/maven
-	url = https://github.com/maestrodev/puppet-maven.git
 [submodule "modules/stdlib"]
 	path = modules/stdlib
 	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
 [submodule "modules/jenkins"]
 	path = modules/jenkins
 	url = https://github.com/jenkinsci/puppet-jenkins.git 
-[submodule "modules/java"]
-	path = modules/java
-	url = https://github.com/maestrodev/puppetlabs-java.git
